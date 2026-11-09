@@ -1,0 +1,29 @@
+name: Independent D3Q27 rank-six integer falsifier
+
+on:
+  pull_request:
+    paths:
+      - "independent/gpt6_d3q27_rank6/**"
+      - ".github/workflows/gpt6-d3q27-rank6.yml"
+  workflow_dispatch:
+
+jobs:
+  rust-181-exact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin Rust 1.81 and Clippy
+        run: |
+          rustup toolchain install 1.81.0 --profile minimal --component clippy
+          rustup override set 1.81.0
+          rustc --version | grep -F 'rustc 1.81.0'
+      - name: Clippy no-warning gate
+        run: cargo clippy --manifest-path independent/gpt6_d3q27_rank6/Cargo.toml --all-targets -- -D warnings
+      - name: Exact tests
+        run: cargo test --manifest-path independent/gpt6_d3q27_rank6/Cargo.toml --all-targets
+      - name: Recompute independent integer receipt
+        run: |
+          cargo run --manifest-path independent/gpt6_d3q27_rank6/Cargo.toml --quiet > /tmp/gpt6_d3q27.hbp
+          cmp /tmp/gpt6_d3q27.hbp independent/gpt6_d3q27_rank6/GPT6_D3Q27_RANK6_20261109.hbp
+          cd independent/gpt6_d3q27_rank6
+          sha256sum -c GPT6_D3Q27_RANK6_20261109.hbp.sha256

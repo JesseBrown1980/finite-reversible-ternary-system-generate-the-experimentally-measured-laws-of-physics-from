@@ -1,0 +1,4 @@
+D3Q27_RANK4|M2=48|M4=48|M22=16|M4_eq_3M22=1|json=0
+D3Q27_RANK6|M6=48|M42=16|M222=8|M6_eq_5M42=0|M6_eq_15M222=0|json=0
+D3Q27_DIRECTIONS|xy_sixth=576|xyz_sixth=2304|axis_times_8=384|axis_times_27=1296|json=0
+D3Q27_NO_GO|exact_rank4_and_rank6_nonzero_variance=IMPOSSIBLE|scope=raw_ternary_velocity_moments|json=0
