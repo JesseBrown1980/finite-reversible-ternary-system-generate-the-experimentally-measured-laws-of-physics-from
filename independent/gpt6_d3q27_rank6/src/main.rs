@@ -83,7 +83,7 @@ mod tests {
     #[test]
     fn false_fourth_order_control() {
         assert_eq!(moment([4, 0, 0], [0, 13, 2, 1]), 50);
-        assert_ne!(50, 3 * 16);
+        assert_ne!(moment([4, 0, 0], [0, 13, 2, 1]), 3 * moment([2, 2, 0], [0, 13, 2, 1]));
     }
     #[test]
     fn nonzero_variance_forces_sixth_obstruction() {
