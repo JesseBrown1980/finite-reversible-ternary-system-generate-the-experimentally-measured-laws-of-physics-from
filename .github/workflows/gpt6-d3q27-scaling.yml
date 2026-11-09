@@ -1,0 +1,30 @@
+name: Independent finite-to-continuous D3Q27 scalar-symbol scaling
+
+on:
+  pull_request:
+    paths:
+      - "independent/gpt6_d3q27_scaling/**"
+      - ".github/workflows/gpt6-d3q27-scaling.yml"
+  workflow_dispatch:
+
+jobs:
+  rational-and-rust-181:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact rational certificate and SHA-256 receipt
+        run: |
+          python3 -I -B independent/gpt6_d3q27_scaling/scaling_exact.py > /tmp/scaling.hbp
+          cmp /tmp/scaling.hbp independent/gpt6_d3q27_scaling/SCALING_20261109.hbp
+          cd independent/gpt6_d3q27_scaling
+          sha256sum -c SCALING_20261109.hbp.sha256
+      - name: Pin Rust 1.81 and Clippy
+        run: |
+          rustup toolchain install 1.81.0 --profile minimal --component clippy
+          rustup override set 1.81.0
+          rustc --version | grep -F 'rustc 1.81.0'
+      - name: Independent Rust integer-moment replay
+        run: |
+          cargo test --manifest-path independent/gpt6_d3q27_scaling/rust/Cargo.toml --all-targets
+          cargo clippy --manifest-path independent/gpt6_d3q27_scaling/rust/Cargo.toml --all-targets -- -D warnings
+          cargo run --manifest-path independent/gpt6_d3q27_scaling/rust/Cargo.toml --quiet
