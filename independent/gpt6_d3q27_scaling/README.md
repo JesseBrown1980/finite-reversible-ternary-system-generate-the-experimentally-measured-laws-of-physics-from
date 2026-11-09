@@ -35,7 +35,7 @@ Proof: exact enumeration gives equal quadratic directional moments; the fourth-m
 
 Ratios \(|\Delta_{1/9}|/|\Delta_{1/27}|\) and \(|\Delta_{1/27}|/|\Delta_{1/81}|\) satisfy, respectively, **(78,79)** and **(80,81)** for uniform (limit 81), and **(716,718)** and **(727,729)** for tuned (limit 729).
 
-The Python checker is integer-backed \`fractions.Fraction\`; it recreates all 27 raw velocities, the moments, Taylor enclosure endpoints, and fault controls before producing \`SCALING_20261109.hbp\`. The Rust 1.81 checker independently recomputes the directional moments, and CI must pass on its committed head. The local Python check passed; until hosted CI passes, **do not label the Rust replay PASS**. Original repo code, historical receipts, Yang–Mills branches and QNN work are untouched.
+The Python checker is integer-backed `fractions.Fraction`; it recreates all 27 raw velocities, the moments, Taylor enclosure endpoints, and fault controls before producing `SCALING_20261109.hbp`. The Rust 1.81 checker independently recomputes the directional moments, and CI must pass on its committed head. The local Python check passed; until hosted CI passes, **do not label the Rust replay PASS**. Original repo code, historical receipts, Yang–Mills branches and QNN work are untouched.
 
 ## Next scientific gate — actual sliced dynamics
 
