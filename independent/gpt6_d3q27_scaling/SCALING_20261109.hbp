@@ -1,0 +1,14 @@
+SCALING_SCOPE|date=2026-11-09|model=D3Q27_weighted_streaming_scalar_symbol|status=POST_EXPLORATION|physical_lattice_sim=NO|controls=5|json=0
+SCALING_MOMENT|model=uniform|W=27|delta_h4=8|delta_h6=-70/3|remainder_h8_le=1168129/30240|json=0
+SCALING_INTERVAL|model=uniform|h=1/9|scale=100000000000000000000|lower=117601337830287677|upper=117601337830306991|json=0
+SCALING_INTERVAL|model=uniform|h=1/27|scale=100000000000000000000|lower=1499327493336217|upper=1499327493336218|json=0
+SCALING_INTERVAL|model=uniform|h=1/81|scale=100000000000000000000|lower=18576198240021|upper=18576198240022|json=0
+SCALING_RATIO|model=uniform|h_num=1/9|h_den=1/27|lower_gt=78|upper_lt=79|json=0
+SCALING_RATIO|model=uniform|h_num=1/27|h_den=1/81|lower_gt=80|upper_lt=81|json=0
+SCALING_MOMENT|model=tuned|W=104|delta_h4=0|delta_h6=-60/13|remainder_h8_le=139949/8736|json=0
+SCALING_INTERVAL|model=tuned|h=1/9|scale=100000000000000000000|lower=-852164040857798|upper=-852164040851018|json=0
+SCALING_INTERVAL|model=tuned|h=1/27|scale=100000000000000000000|lower=-1188808061117|upper=-1188808061116|json=0
+SCALING_INTERVAL|model=tuned|h=1/81|scale=100000000000000000000|lower=-1633790202|upper=-1633790201|json=0
+SCALING_RATIO|model=tuned|h_num=1/9|h_den=1/27|lower_gt=716|upper_lt=718|json=0
+SCALING_RATIO|model=tuned|h_num=1/27|h_den=1/81|lower_gt=727|upper_lt=729|json=0
+SCALING_VERDICT|rank4_uniform=FAIL|rank4_tuned=PASS|leading_directional_error_uniform=h4|leading_directional_error_tuned=h6|nonlinear_dynamics=UNTESTED|json=0
